@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+      *  {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+      }
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #F9F6EE);
+      }
+      .card-container {
+        perspective: 1000px;
+      }
+      .card {
+        width: 340px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+        cursor: pointer;
+      }
+      .card.flipped {
+        transform: rotateY(180deg);
+      }
+      .side {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 14px;
+        color: #F9F6EE;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        backface-visibility: hidden;
+      }
+      .front {
+        background: #111;
+      }
+      .front h1 {
+        margin: 0;
+        font-size: 22px;
+      }
+      .front p {
+        margin-top: 6px;
+        opacity: 0.8;
+      }
+      .back {
+        background: #111;
+        transform: rotateY(180deg);
+        font-size: 14px;
+      }
+      .back span {
+        display: block;
+        margin-bottom: 8px;
+      }
+      .hint {
+        position: absolute;
+        bottom: 10px;
+        right: 14px;
+        font-size: 11px;
+        opacity: 0.5;
+      }
+    </style>
+</head>
+<body>
+   <div class="card-container">
+    <div class="card" id="card">
+       <div class="side front">
+        <h1> KLAUDIA VUKZAJ</h1>
+        <p> For more information, please click above: </p>
+        <div class="hint">click</div>
+        </div>
+       <div class="side back">
+        <span>&#9993; klaudiavukzaj@yahoo.com</span>
+        <span>&#9742; +355683941072</span>
+        <span>&#128205; Tirana, Albania</span>
+       </div>
+    </div>
+   </div>
+   <script>
+    const card = document.getElementById("card")
+    card.addEventListener("click", () => {
+       card.classList.toggle("flipped");
+    });
+   </script>
+</body>
+</html>
